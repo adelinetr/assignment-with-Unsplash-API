@@ -1,0 +1,107 @@
+@mixin favourite-button {
+    background: none;
+    color: white;
+    font-size: 0.9rem;
+    border: white 1px solid;
+    border-radius: 30px;
+}
+@mixin rounded {
+    border-radius: 5px;
+}
+
+@mixin main-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hover-component {
+    .favourite-btn {
+        @include favourite-button;
+        margin-bottom: 1em;
+        padding: 0.75em 1.5em;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #007782;
+            color: white;
+            border: 1px solid #007782;
+        }
+    }
+
+    .check-icon {
+        width: 14px;
+        height: auto;
+        margin-right: 0.5em;
+        animation: fadeIn 0.5s forwards;
+    }
+
+    .favourited {
+        cursor: pointer;
+        background-color: #007782;
+        color: white;
+        border: 1px solid #007782;
+    }
+}
+
+.header {
+    input {
+        @include rounded;
+        margin: auto;
+        width: 70vw;
+        padding: 0.75em;
+        outline: none;
+        border: 1px solid #A6A6A6;
+
+        &::-webkit-input-placeholder {
+            color: #ADADAD;
+        }
+    }
+
+    .search-btn {
+        @include rounded;
+        @include main-display;
+        display: flex;
+        background-color: #ababab;
+        border: none;
+        color: white;
+        font-family: 'Inter';
+        gap: 0.75em;
+        cursor: pointer;
+        padding: 0.9em 1.2em;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #007782;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+.btn-div {
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 1em;
+
+    button {
+        font-family: 'Inter';
+        cursor: pointer;
+        border: none;
+        background: none;
+        border: 1px solid #007782;
+        color: #007782;
+        padding: 1.2em 1.4em;
+        @include rounded;
+    }
+
+    .my-favourites-btn {
+        background-color: #007782;
+        color: white;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: #04656e;
+        }
+    }
+}

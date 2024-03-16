@@ -1,0 +1,69 @@
+$btnTransition: all ease-in-out 0.3s;
+
+@mixin button-mobile {
+    font-size: 0.75rem;
+    width: 100%;
+}
+
+@media screen and (min-width:300px) {
+    .images-list {
+        grid-template-columns: 1fr;
+    }
+    .header {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin-top: 1em;
+        width: 80vw;
+
+        .btn-div {
+            margin-bottom: 1em;
+        }
+        .clear-favourites {
+            @include button-mobile;
+            border: none;
+            background-color: #d3ddde;
+    
+            &:hover {
+                background-color: #cbdadb;
+                transition: $btnTransition;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:660px) {
+    .images-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media screen and (min-width:1050px) {
+    section {
+        margin-top: 2.5em;
+        margin-bottom: 2.5em;
+    }
+
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        input {
+            width: 25em;
+        }
+        .btn-div {
+            margin-bottom: 0;
+            width: fit-content;
+
+            .clear-favourites {
+                width: unset;
+            }
+        }
+    }
+
+    .images-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+}

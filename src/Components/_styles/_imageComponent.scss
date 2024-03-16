@@ -1,0 +1,103 @@
+@mixin component-size($max-width: 100%) {
+    aspect-ratio: 4/3;
+    height: auto;
+    max-width: $max-width;
+
+    @media screen and (min-width: 300px) {
+        max-width: min(80vw, $max-width);
+    }
+
+    @media screen and (min-width: 660px) {
+        max-width: min(40vw, $max-width); 
+    }
+
+    @media screen and (min-width: 1050px) {
+        max-width: min(33vw, $max-width); 
+    }
+}
+
+
+@mixin title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    width: 80%;
+}
+
+@mixin author {
+    margin-top: 0.7em;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 0.85rem;
+    margin-bottom: 1.3em;
+}
+
+.image-component {
+    @include main-display;
+    position: relative;
+    height: fit-content;
+    margin: auto;
+
+    &:hover {
+        .hover-component {
+            display: flex;
+        }
+    }
+}
+
+.image-container {
+    position: relative;
+    @include main-display;
+}
+
+
+.image {
+    @include rounded;
+    @include component-size;
+    transition: opacity 0.7s ease;
+    object-fit: cover;
+    cursor: pointer;
+    box-shadow: #23232320 2px 2px 5px;
+    -webkit-transition: opacity 0.7s ease;
+    -moz-transition: opacity 0.7s ease;
+    -ms-transition: opacity 0.7s ease;
+    -o-transition: opacity 0.7s ease;
+}
+
+.loaded {
+    animation: load 0.3s ease-in-out;
+    -webkit-animation: load 0.6s ease-in-out;
+}
+
+.hover-component {
+    @include rounded;
+    @include component-size(100%);
+    position: absolute;
+    z-index: 10;
+    color: white;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &:hover {
+        transition-duration: 0.2s;
+        background-color: #49494992;
+    }
+
+    h5 {
+        @include title;
+    }
+
+    span {
+        border-top: #E6E6E6 1px solid;
+        width: 15%;
+    }
+
+    h6 {
+        @include author;
+    }
+
+}

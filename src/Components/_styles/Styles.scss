@@ -1,0 +1,67 @@
+@import './buttons';
+@import './imageComponent';
+@import './media';
+@import './keyframes';
+
+$main-font: 'Inter';
+$primary-color: #007782;
+$section-bg: #E6E6E6;
+$transition: all 0.3s ease-in-out !default;
+
+@mixin main-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin rounded {
+    border-radius: 5px;
+}
+
+body {
+    font-family: $main-font;
+}
+
+section {
+    @include rounded;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: auto;
+    background-color: $section-bg;
+    max-width: 87%;
+    margin-top: 1em;
+    padding: 1em;
+    height: fit-content;
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 950px;
+}
+
+.images-list {
+    display: grid;
+    @include rounded;
+    margin: auto;
+    gap: 2em;
+    scroll-behavior: smooth;
+}
+
+.header {
+    width: 85vw;
+    max-width: 950px;
+    display: flex;
+    margin: 2em 0em;
+
+    .input-container {
+        @include main-display;
+        gap: 1em;
+    }
+}
+
+.hidden {
+    display: none;
+}
